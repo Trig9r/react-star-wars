@@ -7,6 +7,7 @@ import loaderBlue from './img/loader-blue.svg';
 import loaderWhite from './img/loader-white.svg';
 
 import styles from './Loading.module.css';
+import '../index.css';
 
 export const Loading = ({ theme = 'white', isShadow = true, classes }) => {
   const [loaderIcon, setLoaderIcon] = React.useState('');

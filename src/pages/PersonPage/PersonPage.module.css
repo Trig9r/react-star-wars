@@ -21,6 +21,5 @@
   flex-wrap: wrap;
   border-radius: var(--border-radius-small);
   border-left: 5px solid var(--color-name);
-  padding: var(--spacing-medium);
-  
+  padding: var(--spacing-medium); 
 }

@@ -2,6 +2,7 @@ import { Home } from '@pages/Home';
 import { People } from '@pages/People';
 import { NotFound } from '@pages/NotFound';
 import { PersonPage } from '@pages/PersonPage';
+import { Favorites } from '@pages/Favorites';
 
 const routesConfig = [
   {
@@ -19,6 +20,10 @@ const routesConfig = [
   {
     path: '/not-found',
     element: <NotFound />,
+  },
+  {
+    path: '/favorites',
+    element: <Favorites />,
   },
   {
     path: '*',

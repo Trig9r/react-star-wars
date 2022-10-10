@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 
 import { PersonLinkBack } from '@components/PersonLinkBack';
 import { PersonPhoto } from '@components/PersonPhoto';
@@ -23,8 +24,10 @@ export const PersonPage = () => {
   const [personFilms, setPersonFilms] = React.useState([]);
   const [errorApi, setErrorApi] = React.useState(false);
   const [isLoading, setLoading] = React.useState(true);
+  const [isFavorite, setFavorite] = React.useState(false);
 
   const { id } = useParams();
+  const store = useSelector((state) => state.favoriteReducer);
 
   const getPersonResource = async (url) => {
     setLoading(true);
@@ -45,6 +48,7 @@ export const PersonPage = () => {
       res.films.length && setPersonFilms(res.films);
       setErrorApi(false);
       setLoading(false);
+      setFavorite(!!store[id]);
     } else {
       setErrorApi(true);
       setLoading(true);
@@ -60,12 +64,18 @@ export const PersonPage = () => {
       {errorApi ? (
         <h1>Ошибка</h1>
       ) : isLoading ? (
-        <Loading />
+        <Loading classes={'center'} />
       ) : (
         <div className={styles.wrapper}>
           <span className={styles.person__name}>{personName}</span>
           <div className={styles.container}>
-            <PersonPhoto imgSrc={personPhoto} alt={personName} />
+            <PersonPhoto
+              imgSrc={personPhoto}
+              alt={personName}
+              personId={id}
+              isFavorite={isFavorite}
+              setFavorite={setFavorite}
+            />
             <PersonInfo info={personInfo} />
             {personFilms && (
               <Suspense fallback={<Loading theme={'red'} />}>
