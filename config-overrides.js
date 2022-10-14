@@ -13,6 +13,7 @@ module.exports = function override(config, env) {
     '@static': 'src/static',
     '@hooks': 'src/hooks',
     '@redux': 'src/redux',
+    '@context': 'src/context',
   })(config);
   return config;
 };

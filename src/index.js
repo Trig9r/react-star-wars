@@ -4,15 +4,20 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { App } from './App';
+import { ThemeProvider } from '@context/ThemeProvider';
 import store from '@redux/store';
 
 import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
+  <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </Provider>
     </BrowserRouter>
-  </Provider>,
+  </React.StrictMode>,
 );
