@@ -38,3 +38,13 @@
   color: var(--color-violet);
   text-shadow: none;
 }
+
+@media screen and (max-width: 670px) {
+  .list__container {
+    display: inline-flex;
+  }
+
+  .list__container a {
+    margin-bottom: var(--spacing-small);
+  }
+}
