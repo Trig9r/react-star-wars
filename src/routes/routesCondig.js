@@ -4,6 +4,7 @@ import { NotFound } from '@pages/NotFound';
 import { PersonPage } from '@pages/PersonPage';
 import { Favorites } from '@pages/Favorites';
 import { Search } from '@pages/Search';
+import { ErrorMessage } from '@components/ErrorMessage';
 
 const routesConfig = [
   {
@@ -19,10 +20,6 @@ const routesConfig = [
     element: <PersonPage />,
   },
   {
-    path: '/not-found',
-    element: <NotFound />,
-  },
-  {
     path: '/search',
     element: <Search />,
   },
@@ -30,6 +27,15 @@ const routesConfig = [
     path: '/favorites',
     element: <Favorites />,
   },
+  {
+    path: '/fail',
+    element: <ErrorMessage />,
+  },
+  {
+    path: '/not-found',
+    element: <NotFound />,
+  },
+
   {
     path: '*',
     element: <NotFound />,
